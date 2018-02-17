@@ -11,13 +11,12 @@ KalmanFilter::KalmanFilter() {}
 KalmanFilter::~KalmanFilter() {}
 
 void KalmanFilter::Init(VectorXd &x_in, MatrixXd &P_in, MatrixXd &F_in,
-                        MatrixXd &H_in, MatrixXd &R_in, MatrixXd &Rekf_in, MatrixXd &Q_in) {
+                        MatrixXd &H_in, MatrixXd &R_in, MatrixXd &Q_in) {
   x_ = x_in;
   P_ = P_in;
   F_ = F_in;
   H_ = H_in;
   R_ = R_in;
-  Rekf_ = Rekf_in;
   Q_ = Q_in;
 }
 
@@ -74,18 +73,18 @@ void KalmanFilter::UpdateEKF(const VectorXd &z) {
 	float rho_ = sqrt(px*px + py*py);
 	float ang_ = atan2(py, px);
 	float de_ = (px*vx + py*vy) / rho_;
-	VectorXd EFKx(3);
-	EFKx << rho_, ang_, de_; 
+	VectorXd EFKz(3);
+	EFKz << rho_, ang_, de_; 
 	MatrixXd Hj_ =  tools.CalculateJacobian(x_)
 
 
-	VectorXd z_pred = Hj_ * x_;
-	VectorXd y = z - EFKx;
+	VectorXd y = z - EFKz;
 
 	//TODO avarage for PI
 
+
 	MatrixXd Htj = Hj_.transpose();
-	MatrixXd S = Hj_ * P_ * Htj + Rekf_;
+	MatrixXd S = Hj_ * P_ * Htj + R_;
 	MatrixXd Si = S.inverse();
 	MatrixXd PHt = P_ * Htj;
 	MatrixXd K = PHt * Si;

@@ -15,7 +15,7 @@ VectorXd Tools::CalculateRMSE(const vector<VectorXd> &estimations,
 	VectorXd rmse(4);
 	rmse << 0, 0, 0, 0;
 
-	if (estimations.size() != ground_truth.size() {
+	if (estimations.size() != ground_truth.size()) {
 		|| estimations.size() == 0) {
 		cout << "Size not matching RMSE" << endl;
 		return rmse;

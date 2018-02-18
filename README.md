@@ -1,7 +1,10 @@
 # Extended Kalman Filter Project
 
-This is a prject for the Self-Driving Car Engineer Nanodegree Program by Udacity. The goal is to build an Extended Kalman filter and performing sensor fusion on lidar and radar data for object tracking. The general flow of a Kalaman Filter can be seen in XX and the result can be seen in XX. The green triangles represent the predicted output of the filter. 
 
+This is a prject for the Self-Driving Car Engineer Nanodegree Program by Udacity. The goal is to build an Extended Kalman filter and performing sensor fusion on lidar and radar data for object tracking. The general flow of a Kalaman Filter can be seen in XXthe result can be seen in XX. The green triangles represent the predicted output of the filter. 
+
+![Result of Simulator and Kalman Filter](https://github.com/emilwareus/Extended-Kalman-Filter/blob/master/result.JPG) 
+![Kalman Filter Overview](https://github.com/emilwareus/Extended-Kalman-Filter/blob/master/KalmanFilter.JPG) 
 
 INPUT: values provided by the simulator to the c++ program
 

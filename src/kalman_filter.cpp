@@ -80,7 +80,10 @@ void KalmanFilter::UpdateEKF(const VectorXd &z) {
 
 	VectorXd y = z - EFKz;
 
-	//TODO avarage for PI
+	if (y[1] > PI)
+		y[1] -= 2.f*PI;
+	if (y[1] < -PI)
+		y[1] += 2.f*PI;
 
 
 	MatrixXd Htj = Hj_.transpose();
